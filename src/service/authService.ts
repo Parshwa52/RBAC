@@ -42,6 +42,8 @@ const isAllowed = async(req: Request, res: Response, next: NextFunction): Promis
             {
                 next();
             }
+        } else if(req.path==="/") {
+            res.status(200).send('Welcome to RBAC! Please consume APIs as given in docs attached.')
         } else {
             res.status(401).json({message:'Wrong Username/Password'});
         } 
