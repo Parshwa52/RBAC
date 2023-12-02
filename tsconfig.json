@@ -6,7 +6,12 @@
       "rootDir": "src",
       "strict": true,
       "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true
+      "forceConsistentCasingInFileNames": true,
+      "allowSyntheticDefaultImports": true,
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "baseUrl": "."
     },
     "include": ["src/**/*"],
     "exclude": ["src/model/*.ts", "node_modules", ".vscode"]
