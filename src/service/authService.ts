@@ -4,6 +4,9 @@ import User from '../model/user';
 
 const isAllowed = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
+        if(req.path==="/") {
+            res.send('Welcome to RBAC! Please consume APIs as given in docs attached.');
+        } else {
         const user: TUser | null = await User.findOne({email: req.body.email, password: req.body.password});
         if(user) {
             if(user.role!=="admin") {
@@ -42,11 +45,10 @@ const isAllowed = async(req: Request, res: Response, next: NextFunction): Promis
             {
                 next();
             }
-        } else if(req.path==="/") {
-            res.status(200).send('Welcome to RBAC! Please consume APIs as given in docs attached.')
         } else {
             res.status(401).json({message:'Wrong Username/Password'});
         } 
+    }
 
        } catch (error) {
          res.status(500).json({message:'Internal Server Error', error})
