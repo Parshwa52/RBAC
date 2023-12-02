@@ -11,7 +11,7 @@ const PORT: string | number = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-app.get('/', (req, res) => {
+app.use('/', (req, res) => {
   res.send('Welcome to RBAC! Please consume APIs as given in docs attached.')
 });
 app.use(taskController);
