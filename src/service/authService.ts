@@ -4,7 +4,6 @@ import User from '../model/user';
 
 const isAllowed = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        console.log(req.path);
         if(req.path.toString()==="/") {
             res.send('Welcome to RBAC! Please consume APIs as given in docs attached.');
         } else {
