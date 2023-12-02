@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const userService_1 = require("../service/userService");
+const authService_1 = require("../service/authService");
+const userController = (0, express_1.Router)();
+userController.use(authService_1.isAllowed);
+userController.post('/create-user', userService_1.createUser);
+userController.put('/modify-user', userService_1.updatePermissionOrProfile);
+userController.get('/get-user', userService_1.getUser);
+exports.default = userController;
